@@ -1,8 +1,10 @@
 simple_export_h = configure_file(
-  input: 'simple_export.h.in',
+  input: export_h_in,
   output: 'simple_export.h',
   configuration: {
-    'SIMPLE_STATIC_DEFINE': get_option('default_library') == 'static',
+    'TARGET': 'simple',
+    'PREFIX': 'SIMPLE',
+    'STATIC': is_static ? 1 : 0,
   },
 )
 
