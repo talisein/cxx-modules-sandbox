@@ -1,0 +1,16 @@
+#pragma once
+
+/* Meson's stand-in for CMake's generate_export_header(simple). */
+#mesondefine SIMPLE_STATIC_DEFINE
+
+#if defined(SIMPLE_STATIC_DEFINE)
+#  define SIMPLE_EXPORT
+#elif defined(_WIN32)
+#  if defined(simple_EXPORTS)
+#    define SIMPLE_EXPORT __declspec(dllexport)
+#  else
+#    define SIMPLE_EXPORT __declspec(dllimport)
+#  endif
+#else
+#  define SIMPLE_EXPORT __attribute__((visibility("default")))
+#endif
