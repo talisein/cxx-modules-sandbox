@@ -8,3 +8,4 @@ is_static = get_option('default_library') == 'static'
 
 subdir('simple')
 subdir('duplicates')
+subdir('duplicates-same-dir')
